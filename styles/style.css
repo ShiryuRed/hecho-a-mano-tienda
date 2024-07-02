@@ -1,0 +1,450 @@
+*{
+    scroll-behavior: smooth;
+}
+body {
+    font-family: "Lato", sans-serif;
+    /* background-color: #090132;
+    color: #fff; */
+    background-color: #efefef;
+}
+.no-scroll {
+    overflow: hidden;
+}
+:root .dark {
+    --background: #007;
+    --text-color: #000;
+    --text-color-alter: #fff;
+    --btn-color: #7C3AED;
+}
+img {
+    height: 100%;
+    width: 100%;
+}
+section {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    transition: filter .6s;
+}
+.section-blur { 
+    filter: blur(2px)
+}
+/*menu mobile*/
+.header {
+    display: grid;
+    grid-template-columns: 1fr;
+    height: 70px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+.background-header {
+    background-color: #efefefdd;
+    position: fixed;
+    top: 0;
+    height: 70px;
+    width: 100vw;
+    z-index: 0;
+    filter: blur(1px);
+}
+.nav-responsive {
+    background-color: #fffd;
+    font-size: large;
+    list-style-type: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    height: 100vh;
+    width: 100vw;
+    position: fixed;
+    transform: translateY(-100%);
+    transition: transform .4s;
+    z-index: 1000;
+    top: 0;
+}
+.nav-responsive-open {
+    transform: translatey(0);
+}
+.nav-responsive-li {
+    width: 230px;
+    text-align: center;
+    padding: 10px 5px;
+    background: #7C3AED;
+    color: #fff;
+    border-radius: 10px;
+    transform: scale(1);
+    transition: transform .4s;
+}
+.a-li {
+    text-decoration: none;
+    color: #fff;
+}
+.nav-responsive-li:active {
+    transform: scale(.7);
+}
+.btn-open-menu, .btn-close-menu {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    grid-row: 1 / 2;
+    grid-column: 2 / 3;
+    transition: transform .6s;
+    padding: 20px;
+    z-index: 1000;
+}
+.open {
+    transform: scale(1);
+}
+.close {
+    transform: scale(0);
+}
+.img-menu {
+    height: 30px;
+    width: 30px;
+}
+
+/*menu mobile*/
+
+
+/*menu*/
+.nav {
+    display: none;
+}
+
+.title-container {
+    display: flex;
+    align-items: center;
+    padding: 15px;
+    z-index: 100;
+}
+.title-container a {
+    color: var(--text-color);
+    text-decoration: none;
+    letter-spacing: 1px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+.img-logo {
+    width: 60px;
+}
+/*menu*/
+
+/*modal plantillas*/
+.modal-plantillas {
+    background-color: #000b;
+    height: 103vh;
+    width: 100vw;
+    z-index: 100000;
+    position: fixed;
+    transform: translateY(-90px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: opacity .3s;
+}.open-modal{
+    opacity: 1;
+}
+.plantilla-content {
+    height: 80%;
+    width: 85%;
+    background-color: #efefef;
+    padding: 15px;
+    overflow: scroll;
+    gap: 30px;
+    display: flex;
+    flex-direction: column;
+    transition: transform .4s;
+    transform: scale(0);
+}
+.open-pla-content {
+    transform: scale(1);
+}
+.close-modal {
+    position: fixed;
+    height: 35px;
+    top: 28px;
+    right: 8px;
+    filter: invert(100%);
+    transition: transform .4s;
+    transform: scale(0);
+    margin: 3px;
+}
+.anim-close {
+    transform: scale(1);
+}
+.img-modal-container {
+    max-width: 350px;
+    margin: 0 auto;
+}.img-modal-container > img {
+    object-fit: contain;
+}
+
+
+.button-modal {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}.button-modal a {
+    padding: 10px;
+    border: 2px solid #444;
+    border-radius: 10px;
+    text-decoration: none;
+    text-align: center;
+}.btn-modal-whatsapp {
+    background-color: #25D366;
+    color: #fff;
+}.btn-modal-mercadolibre {
+    background-color: #FFE600;
+    color: #000;
+}
+/*modal plantillas*/
+
+
+/*Presentacion*/
+
+h1 {
+    color: #FFF;
+    text-align: center;
+}
+.presentacion {
+    background-position: center;
+    background-size: cover;
+    height: 75vh;
+    position: static;
+}
+.background-1 {
+    background-image: url("/multimedia/images/IMG_0238.HEIC");
+}
+.blur-background {
+    background-color: #000a;
+    height: 75vh;
+    width: 100%;
+    position: absolute;
+    z-index: 10;
+    top: 7.5%;
+    left: 0;
+}
+.presentacion-content {
+    z-index: 20;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+}
+.text {
+    margin: 10px;
+    font-size: 1rem;
+}
+.presentacion > .text {
+    text-align: center;
+}
+.btn-container {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 15px;
+}
+.btn-accion {
+    padding: 10px 20px;
+    background-color: #7C3AED;
+    border-radius: 15px;
+    font-size: .8rem;
+    text-decoration: none;
+    text-align: center;
+    border: 2px solid #0000;
+    color: #fff;
+    width: 45%;
+    transition: transform .5s;
+}
+
+.btn-accion:active{
+    transform: scale(.7);
+}
+
+.img-sample {
+    /* background-image: linear-gradient(#0000 70%, #000); */
+    filter: drop-shadow(#000 8px 12px 7px);
+    margin: auto;
+    width: 85%;
+}/*Presentacion*/
+
+
+/*Barra de busqueda*/
+.serch-section {
+    padding: 0;
+}
+.serch-container {
+    background-color: #000;
+    height: 100%;
+    width: 100%;
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+.filter, .btn-serch {
+    background-color: #000;
+    width: 40px;
+    height: 40px;
+    border: 2px solid #555;
+}.filter > img, .btn-serch > img {
+    filter: invert(1);
+}
+#bar-serch {
+    height: 40px;
+    width: 65%;
+    border: 2 px solid #555;
+    transition: background .3s border .3s;
+}
+#bar-serch:focus {
+    background-color: #ccc;
+}
+/*Barra de busqueda*/
+
+.data-cartas {
+    background-color: red;
+}
+
+/*pruebas xdddd*/
+.items {
+    padding: 10px;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+#search-bar {
+    margin-bottom: 20px;
+    display: none;
+}
+
+.card-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    gap: 20px;
+    overflow: scroll;
+    scrollbar-width: none;
+    padding: 10px;
+}
+
+.card {
+    border-radius: 8px;
+    min-width: 250px;
+    max-height: 400px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+    box-shadow: #0009 0px 0px 10px;
+    padding: 10px;
+    gap: 5px;
+}
+
+.img-container {
+    border-radius: 8px;
+    object-fit: contain;
+}
+
+.card button {
+    margin-top: 10px;
+    padding: 8px 16px;
+    border: none;
+    background-color: #007BFF;
+    color: white;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.card button:hover {
+    background-color: #0056b3;
+}
+/*pruebas xdddd*/
+
+/*promociones*/
+.promociones {
+    display: flex;
+    gap: 20px;
+    position: relative;
+}
+.promocion-mensual {
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 400px;
+    width: 100%;
+    max-width: 700px;
+    max-height: 400px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.promocion1 {
+    background-image: url(/multimedia/images/promociones/1.png);
+}
+.promocion2 {
+    background-image: url(/multimedia/images/promociones/2.png);
+}
+.promocion-mensual > div {
+    background-color: #021d3ab7;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    width: 75%;
+    min-height: 150px;
+    height: 150px;
+    max-height: 60%;
+    margin: 10px;
+    padding: 10px;
+    border-radius: 10px;
+    gap: 5px;
+}.promocion-mensual > div > p {
+    margin: 20px 0;
+}.promocion-mensual > a {
+    background-color: #25D366;
+    margin: 10px;
+    padding: 10px;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 10px;
+    border: 2px solid #fff;
+    color: #fff;
+    max-width: 80%;
+}
+/*promociones*/
+
+
+
+
+.h2-contact {
+    margin: 25px auto;
+    text-align: center;
+}.img-icon {
+    width: 35px;
+}
+.whatsapp, .number-phone {
+    display: flex;
+    padding: 20px;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    font-size: large;
+}
+.o {
+    text-align: center;
+}
+/*Contacto*/
+
+footer > p {
+    text-align: center
+}
