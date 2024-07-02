@@ -126,15 +126,15 @@ document.addEventListener('DOMContentLoaded', () => {
     let descripcionMarmol = 'Cuando no ha accedido a su Cuenta de Google, almacenamos la información que recopilamos con identificadores únicos que están vinculados con el navegador, '
 
     // Tarjetas lambrin
-    createCard('/multimedia/images/materiales/lam-chocolate.jpg', 'Lambrin color chocolate', '$300 pz', 'tag1', 'card-lambrin', medidaLambrin, descripcionLambrin);
-    createCard('/multimedia/images/materiales/28.png', 'Lambrin color madera', '$300 pz', 'tag1', 'card-lambrin', medidaLambrin, descripcionLambrin);
-    createCard('/multimedia/images/materiales/29.png', 'Lambrin color carbon', '$300 pz', 'tag1', 'card-lambrin', medidaLambrin, descripcionLambrin);
+    createCard('multimedia/images/materiales/lam-chocolate.jpg', 'Lambrin color chocolate', '$300 pz', 'tag1', 'card-lambrin', medidaLambrin, descripcionLambrin);
+    createCard('multimedia/images/materiales/28.png', 'Lambrin color madera', '$300 pz', 'tag1', 'card-lambrin', medidaLambrin, descripcionLambrin);
+    createCard('multimedia/images/materiales/29.png', 'Lambrin color carbon', '$300 pz', 'tag1', 'card-lambrin', medidaLambrin, descripcionLambrin);
     // Tarjetas marmol
-    createCard('/multimedia/images/materiales/33.png', 'Mármol PVC color negro', '$1300 pz', 'tag1', 'card-marmol', medidaMarmol, descripcionMarmol);
-    createCard('/multimedia/images/materiales/34.png', 'Mármol PVC color blanco', '$1300 pz', 'tag1', 'card-marmol', medidaMarmol, descripcionMarmol);
-    createCard('/multimedia/images/materiales/35.png', 'Mármol PVC color dorado', '$1300 pz', 'tag1', 'card-marmol', medidaMarmol, descripcionMarmol);
+    createCard('multimedia/images/materiales/33.png', 'Mármol PVC color negro', '$1300 pz', 'tag1', 'card-marmol', medidaMarmol, descripcionMarmol);
+    createCard('multimedia/images/materiales/34.png', 'Mármol PVC color blanco', '$1300 pz', 'tag1', 'card-marmol', medidaMarmol, descripcionMarmol);
+    createCard('multimedia/images/materiales/35.png', 'Mármol PVC color dorado', '$1300 pz', 'tag1', 'card-marmol', medidaMarmol, descripcionMarmol);
     // Tarjetas mas materiales
-    createCard('/multimedia/images/materiales/26.png', 'Material 1', '$900', 'tag1', 'card-otros-materiales');
-    createCard('/multimedia/images/materiales/27.png', 'Material 2', '$500', 'tag1', 'card-otros-materiales');
-    createCard('/multimedia/images/materiales/31.png', 'Material 3', '$500', 'tag1', 'card-otros-materiales');
+    createCard('multimedia/images/materiales/26.png', 'Material 1', '$900', 'tag1', 'card-otros-materiales');
+    createCard('multimedia/images/materiales/27.png', 'Material 2', '$500', 'tag1', 'card-otros-materiales');
+    createCard('multimedia/images/materiales/31.png', 'Material 3', '$500', 'tag1', 'card-otros-materiales');
 });
