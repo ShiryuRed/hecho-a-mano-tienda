@@ -184,6 +184,9 @@ section {
 }
 
 
+
+
+
 .button-modal {
     display: flex;
     flex-direction: column;
@@ -204,6 +207,41 @@ section {
 /*modal plantillas*/
 
 
+/*boton flotante*/
+.btn-whatsapp-fixed {
+    background-color: #25D366;
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    margin: 40px 10px;
+    padding: 5px;
+    z-index: 15;
+    transform: translateX(200px);
+    transition: transform 0.5s ease;
+    border: 2px solid #444;
+    border-radius: 10px;
+}
+.btn-whatsapp-fixed:active {
+    transform: scale(.7);
+}
+.move-btn {
+    transform: translateX(0);
+}
+.btn-whatsapp-fixed > a { 
+    height: 35px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 120px;
+    color: #fff;
+    text-decoration: none;
+}
+.btn-whatsapp-fixed > a > img {
+    filter: invert(1);
+}
+/*boton flotante*/
+
+
 /*Presentacion*/
 
 h1 {
@@ -214,12 +252,38 @@ h1 {
     background-position: center;
     background-size: cover;
     height: 75vh;
-    position: static;
+    position: relative;
 }
 .background-1 {
     background-image: url("../multimedia/images/IMG_0238.HEIC");
+    
 }
-.blur-background {
+.background-1::before {
+    content: " ";
+    inset: 0;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #0009;
+}.background-1::after {
+    content: " ";
+    inset: 0;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: linear-gradient(to bottom, transparent 5%, 
+    rgba(0, 0, 0, 0)50%,
+    rgba(0,0,0) 99.9%);
+}
+/* .blur-background {
     background-color: #000a;
     height: 75vh;
     width: 100%;
@@ -227,7 +291,21 @@ h1 {
     z-index: 10;
     top: 7.5%;
     left: 0;
+} */
+
+.sobre-nosotros {
+    background-color: #000;
+    color: #fff;
+    
+}.sobre-nosotros > div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    gap: 10px;
 }
+
 .presentacion-content {
     z-index: 20;
     height: 100%;
@@ -388,14 +466,29 @@ h1 {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    position: relative;
 }
 .promocion1 {
     background-image: url('../multimedia/images/promociones/1.png');
+}
+.promocion1::before, .promocion2::before{
+    content: " ";
+    inset: 0;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #0009;
 }
 .promocion2 {
     background-image: url('../multimedia/images/promociones/2.png');
 }
 .promocion-mensual > div {
+    position: relative;
+    z-index: 10;
     background-color: #021d3ab7;
     color: #fff;
     display: flex;
@@ -411,6 +504,8 @@ h1 {
 }.promocion-mensual > div > p {
     margin: 20px 0;
 }.promocion-mensual > a {
+    position: relative;
+    z-index: 10;
     background-color: #25D366;
     margin: 10px;
     padding: 10px;
@@ -455,22 +550,71 @@ h1 {
 .h2-contact {
     margin: 25px auto;
     text-align: center;
-}.img-icon {
-    width: 35px;
 }
-.whatsapp, .number-phone {
+
+.contact-info {
+    margin-top: 15px;
+    margin-bottom: 15px;
     display: flex;
-    padding: 20px;
-    align-items: center;
-    justify-content: center;
+    flex-wrap: wrap;
     gap: 5px;
-    font-size: large;
+    justify-content: space-evenly;
 }
-.o {
+.contact-info > div {
+  min-width: 150px;
+  min-height: 120px;
+  border-radius: 10px;
+}
+.contact-info img {
+    width: 50px;
+    margin: 5px;
+    vertical-align: middle;
+    filter: invert(1);
+}.contact-info > div > a {
+    color: #fff;
+    display: flex;
+    flex-direction: column;
     text-align: center;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    gap: 2px;
+    padding: 4px;
+}
+
+#whatsapp-share, .whatsapp-share {
+  background-color: #25D366;
+}
+#facebook-share, .facebook-share {
+  background-color: #3b5998;
+}
+.instagram-share {
+  background-color: #E1306C;
+}
+#twitter-share, .twitter-share {
+  background-color: #1DA1F2;
+}
+.phone-share {
+  background-color: #4285F4;
+}
+.tiktok-share {
+    background-color: #000000;
 }
 /*Contacto*/
-
+footer {
+    background-color: #000;
+    text-align: center;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 20px;
+}
 footer > p {
-    text-align: center
+    color: #fff;
+}
+footer > a {
+    color: #fff
+}footer > a > b {
+    color: #F00
 }

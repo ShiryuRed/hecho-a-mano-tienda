@@ -44,7 +44,7 @@ document.addEventListener('DOMContentLoaded', () => {
     
         // Crear y añadir el botón a la tarjeta
         const button = document.createElement('button');
-        button.textContent = 'Adquirir';
+        button.textContent = 'Más información';
         button.className = 'btn-card';
         let cardData = { undefined};
         button.addEventListener('click', () => {
@@ -138,3 +138,29 @@ document.addEventListener('DOMContentLoaded', () => {
     createCard('multimedia/images/materiales/27.png', 'Material 2', '$500', 'tag1', 'card-otros-materiales');
     createCard('multimedia/images/materiales/31.png', 'Material 3', '$500', 'tag1', 'card-otros-materiales');
 });
+
+
+
+
+
+
+
+window.addEventListener('scroll', function() {
+    var btnWhatsAppFix = document.querySelector(".btn-whatsapp-fixed");
+    var scrollPosition = window.scrollY + window.innerHeight;
+    var documentHeight = document.documentElement.scrollHeight;
+    if (window.scrollY > 500) { //Cantidad de pixeles que se mueve
+        btnWhatsAppFix.classList.add('move-btn');
+    } else {
+        btnWhatsAppFix.classList.remove('move-btn');
+    }
+
+    if (scrollPosition >= documentHeight  ) {
+        console.log('dad')
+        btnWhatsAppFix.classList.add('final');
+    } else {
+        btnWhatsAppFix.classList.remove('final');
+    }
+});
+
+
