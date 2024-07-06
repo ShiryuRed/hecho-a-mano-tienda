@@ -146,20 +146,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 window.addEventListener('scroll', function() {
-    var btnWhatsAppFix = document.querySelector(".btn-whatsapp-fixed");
-    var scrollPosition = window.scrollY + window.innerHeight;
-    var documentHeight = document.documentElement.scrollHeight;
+    let btnWhatsAppFix = document.querySelector(".btn-whatsapp-fixed");
+    let offsetHeight = document.getElementById('body').offsetHeight;
     if (window.scrollY > 500) { //Cantidad de pixeles que se mueve
         btnWhatsAppFix.classList.add('move-btn');
     } else {
         btnWhatsAppFix.classList.remove('move-btn');
-    }
-
-    if (scrollPosition >= documentHeight  ) {
-        console.log('dad')
-        btnWhatsAppFix.classList.add('final');
-    } else {
-        btnWhatsAppFix.classList.remove('final');
+    } if (window.scrollY > 3300) {
+        btnWhatsAppFix.classList.remove('move-btn'); //Cantidad de pixeles que se mueve 
     }
 });
 
