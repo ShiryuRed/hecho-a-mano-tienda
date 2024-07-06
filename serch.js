@@ -1,15 +1,20 @@
+
+
 // script.js 
 document.addEventListener('DOMContentLoaded', () => {
     const searchInput = document.getElementById('search-input');
     const filterButton = document.getElementById('filter-button');
 
     const imgModalContainer = document.querySelector(".img-modal-container");
+    const imgGliderModal = document.querySelector(".img-glider-modal");
     const h2Container = document.querySelector(".h2-container");
     const price = document.querySelector(".price");
     const medidasMaterial = document.querySelector(".medidas");
     const descripcionMaterial = document.querySelector(".descripcion-material");
+    const firstImageModal = document.querySelector('.first-img-modal');
 
-    function createCard(imageSrc, name, number, tagName, containerId, medidas, description) {
+    
+    function createCard(imageSrc, name, number, tagName, containerId, medidas, description, imgUrls) {
         // Crear un contenedor para la tarjeta
         const card = document.createElement('div');
         card.className = 'card';
@@ -19,12 +24,15 @@ document.addEventListener('DOMContentLoaded', () => {
         const imgContainer = document.createElement('div');
         imgContainer.className = 'img-card-container';
         card.appendChild(imgContainer);
-    
-        // Crear y añadir la imagen a la tarjeta
+
+        var imgModalUrls = imgUrls
+
+        // // Crear y añadir la imagen a la tarjeta
         const img = document.createElement('img');
         img.src = imageSrc;
         img.setAttribute('alt', name);
         imgContainer.appendChild(img);
+
     
         // Crear y añadir el nombre a la tarjeta
         const cardName = document.createElement('h3');
@@ -67,10 +75,9 @@ document.addEventListener('DOMContentLoaded', () => {
         button.addEventListener('click', () => {
             openModalFun();
 
-            const imgModal = document.createElement('img');
-            imgModal.src = imageSrc;
-            imgModal.setAttribute('alt', name);
-            imgModalContainer.appendChild(imgModal);
+
+            firstImageModal.setAttribute('alt', name);
+            firstImageModal.setAttribute('src', imageSrc);
 
             const titleModal = document.createElement('h2');
             titleModal.textContent = `${name}`;
@@ -88,6 +95,19 @@ document.addEventListener('DOMContentLoaded', () => {
             descriptionInfo.textContent = `${description}`;
             descripcionMaterial.appendChild(descriptionInfo);
 
+            
+            const imgModal = document.createElement('img');
+            imgModalUrls.forEach(imageUrl => {
+                const img = document.createElement('img');
+                img.src = imageUrl;
+                img.classList.add('img-gallery-modal');
+                img.setAttribute('alt', 'img gallery')
+                imgGliderModal.appendChild(img);
+            });
+            
+
+            const imagesGalleryModal = imgGliderModal.querySelectorAll('.img-gallery-modal');
+
             closeModal.addEventListener('click', () => {
                 closeModalFun();
                 setTimeout(function(){ 
@@ -96,6 +116,9 @@ document.addEventListener('DOMContentLoaded', () => {
                     precioModal.remove();
                     medidasInfo.remove();
                     descriptionInfo.remove();
+                    imagesGalleryModal.forEach(img => {
+                        img.remove();
+                    });
                 },400)
             });
         });
@@ -125,23 +148,22 @@ document.addEventListener('DOMContentLoaded', () => {
     let descripcionLambrin = 'Recopilamos información para brindar mejores servicios a todos nuestros usuarios: '
     let descripcionMarmol = 'Cuando no ha accedido a su Cuenta de Google, almacenamos la información que recopilamos con identificadores únicos que están vinculados con el navegador, '
 
-    // Tarjetas lambrin
-    createCard('multimedia/images/materiales/lam-chocolate.jpg', 'Lambrin color chocolate', '$300 pz', 'tag1', 'card-lambrin', medidaLambrin, descripcionLambrin);
-    createCard('multimedia/images/materiales/28.png', 'Lambrin color madera', '$300 pz', 'tag1', 'card-lambrin', medidaLambrin, descripcionLambrin);
-    createCard('multimedia/images/materiales/29.png', 'Lambrin color carbon', '$300 pz', 'tag1', 'card-lambrin', medidaLambrin, descripcionLambrin);
+    const imgLamChocolate = ['multimedia/images/materiales/28.png', 'multimedia/images/materiales/29.png'];
+    const imgMarNegro = ['multimedia/images/materiales/33.png', 'multimedia/images/materiales/34.png'];
+
+    // Tarjetas lambrin    
+    createCard('multimedia/images/materiales/lam-chocolate.jpg', 'Lambrin color chocolate', '$300 pz', 'tag1', 'card-lambrin', medidaLambrin, descripcionLambrin, imgLamChocolate);
+    createCard('multimedia/images/materiales/28.png', 'Lambrin color madera', '$300 pz', 'tag1', 'card-lambrin', medidaLambrin, descripcionLambrin, imgLamChocolate);
+    createCard('multimedia/images/materiales/29.png', 'Lambrin color carbon', '$300 pz', 'tag1', 'card-lambrin', medidaLambrin, descripcionLambrin, imgLamChocolate);
     // Tarjetas marmol
-    createCard('multimedia/images/materiales/33.png', 'Mármol PVC color negro', '$1300 pz', 'tag1', 'card-marmol', medidaMarmol, descripcionMarmol);
-    createCard('multimedia/images/materiales/34.png', 'Mármol PVC color blanco', '$1300 pz', 'tag1', 'card-marmol', medidaMarmol, descripcionMarmol);
-    createCard('multimedia/images/materiales/35.png', 'Mármol PVC color dorado', '$1300 pz', 'tag1', 'card-marmol', medidaMarmol, descripcionMarmol);
+    createCard('multimedia/images/materiales/33.png', 'Mármol PVC color negro', '$1300 pz', 'tag1', 'card-marmol', medidaMarmol, descripcionMarmol, imgMarNegro);
+    createCard('multimedia/images/materiales/34.png', 'Mármol PVC color blanco', '$1300 pz', 'tag1', 'card-marmol', medidaMarmol, descripcionMarmol, imgMarNegro);
+    createCard('multimedia/images/materiales/35.png', 'Mármol PVC color dorado', '$1300 pz', 'tag1', 'card-marmol', medidaMarmol, descripcionMarmol, imgMarNegro);
     // Tarjetas mas materiales
-    createCard('multimedia/images/materiales/26.png', 'Material 1', '$900', 'tag1', 'card-otros-materiales');
-    createCard('multimedia/images/materiales/27.png', 'Material 2', '$500', 'tag1', 'card-otros-materiales');
-    createCard('multimedia/images/materiales/31.png', 'Material 3', '$500', 'tag1', 'card-otros-materiales');
+    createCard('multimedia/images/materiales/26.png', 'Material 1', '$900', 'tag1', 'card-otros-materiales', medidaLambrin, descripcionLambrin, imgLamChocolate);
+    createCard('multimedia/images/materiales/27.png', 'Material 2', '$500', 'tag1', 'card-otros-materiales', medidaMarmol, descripcionMarmol, imgMarNegro);
+    createCard('multimedia/images/materiales/31.png', 'Material 3', '$500', 'tag1', 'card-otros-materiales', medidaLambrin, descripcionLambrin, imgLamChocolate);
 });
-
-
-
-
 
 
 
