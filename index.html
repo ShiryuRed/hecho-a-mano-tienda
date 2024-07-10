@@ -9,7 +9,7 @@
     <meta name="copyright" content="Red Digital Creations">
     <meta name="robots" content="index">
 
-    <link rel="icon" href="multimedia/images/HechoaMano.ico">
+    <link rel="icon" href="multimedia/images/hecho-a-mano-logo.ico">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
@@ -25,7 +25,7 @@
             <li class="nav-responsive-li"><a href="#marmol" class="a-li">Mármol PVC</a></li>
             <li class="nav-responsive-li"><a href="#promociones" class="a-li">Promociones</a></li>
             <li class="nav-responsive-li"><a href="#" class="a-li">Sobre nosotros</a></li>
-        </nav>
+        </nav> 
         <nav class="nav">
             <li class="nav-resoponsive-li">d</li>
             <li class="nav-resoponsive-li">d</li>
@@ -56,9 +56,15 @@
             </div>
         <div class="plantilla-content">
             <div class="img-modal-container glider-contain">
-                
-                <div class="glider img-glider-modal">
-                    <img class="first-img-modal" src="" alt="">
+                <div class="glider" >
+                    <div id="img-glider-modal">
+                    </div>
+                    <!-- <img class="first-img-modal" src="" alt=""> -->
+                </div>
+                <button id="prevButton" type="button"><</button>
+                <button id="nextButton" type="button">></button>
+                <div id="dotsContainer"> 
+                    <!-- aqui los dots -->
                 </div>
             </div>
             <div class="h2-container"></div>
@@ -185,6 +191,20 @@
         </div>
         
     </section>
+    <!-- <section>
+        <div id="modal">
+            <div id="imageContainer">
+                
+            </div>
+            <button id="prevButton"><</button>
+            <button id="nextButton">></button>
+            <div id="dotsContainer">
+                <span class="dot"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
+            </div>
+        </div>
+    </section> -->
 
     <section class="contacto section" id="contacto">
         <h2>Contactanos mediante</h2>
@@ -245,6 +265,6 @@
     </footer>
     
     <script src="menu.js"></script>
-    <script src="serch.js"></script>
+    <script src="search.js"></script>
 </body>
 </html>

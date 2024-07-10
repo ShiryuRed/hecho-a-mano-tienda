@@ -175,28 +175,90 @@ section {
 }
 .anim-close {
     transform: scale(1);
-}.img-modal-container {
+}
+.img-modal-container {
     min-width: 260px;
     max-width: 400px;
-    max-height: 500px; 
+    max-height: 500px;
+    width: 320px;
+    height: 320px;
     display: flex;
     margin: auto;
+    position: relative;
 }
-.img-glider-modal {
-    margin: 0 auto;
-    display: flex;
-    flex: row;
-    overflow: scroll;
-    padding: 5px;
-    inset: 0;
-}.img-glider-modal > img {
+#img-glider-modal {
+    height: 100%;
+    width: 100%;
+    object-fit: contain;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    transition: background .4s;
+}
+/* .img-glider-modal > img {
     object-fit: cover;
     transition: transform 0.5s ease;
     width: 100%;
     height: 100%;
+} */
+.glider { 
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.glider-contain > button{
+    padding:  10px 15px;
+    border-radius: 10px;
+    border: none;
+    color: #fff;
+    transform: scale(1);
+    transition: transform .3s;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    height: 40px;
+    background-color: #00000067;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}.glider-contain > button:active {
+    transform: scale(0.9);
+}
+#prevButton {
+    border: 2px solid #a09696;
+}#nextButton {
+    border: 2px solid #a09696;
+    right: 0;
+}
+#dotsContainer {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    padding: 5px;
+    background-color: #cfcfcfdd;
+    border-radius: 20px;
+    width: 200px;
+    margin-bottom: 10px;
+    text-align: center;
+}
+.dot {
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    background-color: #999;
+    border-radius: 50%;
+    margin: 0 5px;
+    cursor: pointer;
+    transition: background .6s;
 }
 
-
+.active { 
+    background-color: #333;
+} 
 
 
 .button-modal {
@@ -643,3 +705,80 @@ footer > a {
 }footer > a > b {
     color: #F00
 }
+
+
+/* #modal {
+    position: relative;
+}
+#imageContainer {
+    background-color: red;
+    display: flex;
+    overflow: hidden;
+    width: 300;
+    height: 350px;
+    background-size: cover;
+    background-position: center;
+    transition: background .3s;
+    position: relative;
+}#imageContainer > div {
+    min-width: 100%;
+    min-height: 100%;
+}#imageContainer > div > img {
+    width: 100%;
+    height: 100%;
+}#imageContainer > img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}#dotsContainer {
+    text-align: center;
+}
+#modal > button{
+    padding:  10px 15px;
+    border-radius: 10px;
+    border: none;
+    color: #fff;
+    transform: scale(1);
+    transition: transform .3s;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    height: 40px;
+    background-color: #00000067;
+}#modal > button:active {
+    transform: scale(0.9);
+}
+#prevButton {
+    border: 2px solid #fff;
+    
+}#nextButton {
+    border: 2px solid #fff;
+    right: 0;
+}
+#dotsContainer {
+    position: relative;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    padding: 5px;
+    background-color: #cfcfcfdd;
+    border-radius: 20px;
+    width: 200px;
+    margin-bottom: 10px;
+}
+.dot {
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    background-color: #999;
+    border-radius: 50%;
+    margin: 0 5px;
+    cursor: pointer;
+    transition: background .6s;
+}
+
+.active { 
+    background-color: #333;
+} */
+

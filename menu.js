@@ -64,3 +64,55 @@ function closeModalFun() {
     modalPlantillas.setAttribute("hidden", true);
     },400)
 }
+
+
+// JavaScript
+// const images = ['multimedia/images/materiales/28.png', 'multimedia/images/materiales/29.png', 'multimedia/images/materiales/26.png']; // Lista de imágenes
+// let currentImage = 0; // Imagen actual
+// const dots = document.querySelectorAll('.dot');
+// const prevButton = document.getElementById('prevButton');
+// const nextButton = document.getElementById('nextButton');
+// const imageContainer = document.getElementById('imageContainer');
+
+// function generateDots() {
+//     images.forEach((_, index) => {
+//         const dot = document.createElement('span');
+//         dot.classList.add('dot');
+//         dot.setAttribute('data-index', index); // Asigna un índice al dot
+//         dotsContainer.appendChild(dot);
+//     });
+// }
+
+// prevButton.addEventListener('click', () => {
+//     currentImage = (currentImage - 1 + images.length) % images.length;
+//     updateImage();
+// let linkas = imageContainer.style.backgroundImage;
+//     console.log(linkas)
+// });
+// // Asigna eventos a los dots
+// dots.forEach((dot, index) => {
+//     dot.addEventListener('click', () => {
+//         currentImage = index;
+//         updateImage();
+//     });
+// });
+// nextButton.addEventListener('click', () => {
+//     currentImage = (currentImage + 1) % images.length;
+//     updateImage();
+//     let linkas = imageContainer.style.backgroundImage;
+//     console.log(linkas)
+// });
+
+// function updateImage() {
+//     imageContainer.style.backgroundImage = `url(${images[currentImage]})`;
+//     dots.forEach((dot, index) => {
+//         dot.classList.toggle('active', index === currentImage);
+//     });
+// }
+// imageContainer.addEventListener('click', () => {
+//     let linkas2 = imageContainer.style.backgroundImage;
+//     console.log(linkas2)
+// })
+
+
+
