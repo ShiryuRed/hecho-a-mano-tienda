@@ -152,7 +152,7 @@ section {
     height: 85vh;
     width: 85%;
     background-color: #efefef;
-    padding: 15px;
+    padding: 10px;
     overflow: scroll;
     gap: 30px;
     display: flex;
@@ -180,8 +180,8 @@ section {
     min-width: 260px;
     max-width: 400px;
     max-height: 500px;
-    width: 320px;
-    height: 320px;
+    width: 295px;
+    height: 295px;
     display: flex;
     margin: auto;
     position: relative;
