@@ -12,7 +12,24 @@ document.addEventListener('DOMContentLoaded', () => {
     const medidasMaterial = document.querySelector(".medidas");
     const descripcionMaterial = document.querySelector(".descripcion-material");
     // const firstImageModal = document.querySelector('.first-img-modal');
+    const modalImgContainer = document.querySelector('.modal-img');
+    const modalImgContent = document.querySelector('.modal-img-container');
+    const imgModal = document.querySelector('.imgModal');
 
+    function openImgModal() {
+        modalImgContainer.removeAttribute("hidden");
+            setTimeout(function(){
+            modalImgContainer.classList.add("modal-background");
+            modalImgContent.classList.add('modal-content-on');
+        },100);
+    };
+    function closeImgModal() {
+        modalImgContent.classList.remove('modal-content-on');
+        modalImgContainer.classList.remove("modal-background");
+        setTimeout(function(){
+            modalImgContainer.setAttribute("hidden", "true");
+        },600);
+    }
     
     function createCard(imageSrc, name, number, tagName, containerId, medidas, description, imgUrls) {
         // Crear un contenedor para la tarjeta
@@ -30,8 +47,23 @@ document.addEventListener('DOMContentLoaded', () => {
         // // Crear y añadir la imagen a la tarjeta
         const img = document.createElement('img');
         img.src = imageSrc;
+        img.classList.add('modalImg')
         img.setAttribute('alt', name);
+        img.setAttribute('loading', 'lazy');
         imgContainer.appendChild(img);
+        const modalImg = document.querySelectorAll('.modalImg')
+
+        modalImg.forEach(images => {
+            images.addEventListener('click', () => {
+              let src = images.getAttribute('src');
+              imgModal.setAttribute('src', src);
+              openImgModal()
+            });
+              
+        });
+        modalImgContainer.addEventListener ("click", () => {
+            closeImgModal();
+        })
 
     
         // Crear y añadir el nombre a la tarjeta
@@ -112,8 +144,8 @@ document.addEventListener('DOMContentLoaded', () => {
             //     imgGliderModal.appendChild(img);
             // });
             let images = [].concat(imgModalUrls);
-            console.log(firstImage);
-            console.log(images)
+            // console.log(firstImage);
+            // console.log(images)
             images.splice(0, 0, firstImage);
             
             // const imagesGalleryModal = imgGliderModal.querySelectorAll('.img-gallery-modal');
@@ -153,8 +185,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 nextButton.addEventListener('click', () => {
                     currentImage = (currentImage + 1) % images.length;
                     updateImage();
-                    let linkas = imageContainer.style.backgroundImage;
-                    console.log(linkas)
+                    // let linkas = imageContainer.style.backgroundImage;
+                    // console.log(linkas)
                 });
                 function updateImage() {
                     imageContainer.style.backgroundImage = `url(${images[currentImage]})`;
@@ -165,7 +197,10 @@ document.addEventListener('DOMContentLoaded', () => {
                 updateImage()
                 imageContainer.addEventListener('click', () => {
                     let linkas2 = imageContainer.style.backgroundImage;
-                    console.log(linkas2)
+                    console.log(linkas2);
+                    const urlLimpia = linkas2.replace(/url\(['"]?(.*?)['"]?\)/, '$1');
+                    imgModal.setAttribute('src', urlLimpia);
+                    openImgModal();
                 })
 
 
@@ -184,6 +219,22 @@ document.addEventListener('DOMContentLoaded', () => {
                         dot.remove();
                     });
                 },400)
+            });
+            modalPlantillas.addEventListener('click', () => {
+                if (event.target === modalPlantillas) {
+                    closeModalFun();
+                        setTimeout(function(){
+                            images = imgModalUrls;
+                            titleModal.remove();
+                            precioModal.remove();
+                            medidasInfo.remove();
+                            descriptionInfo.remove();
+                            dotsOnModal.forEach(dot => {
+                                dot.remove();
+                            });
+                        },400)
+                  }
+                
             });
         });
         
