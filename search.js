@@ -177,8 +177,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 prevButton.addEventListener('click', () => {
                     currentImage = (currentImage - 1 + images.length) % images.length;
                     updateImage();
-                let linkas = imageContainer.style.backgroundImage;
-                    console.log(linkas)
+                    // let linkas = imageContainer.style.backgroundImage;
+                    // console.log(linkas)
                 });
                 // Asigna eventos a los dots
                 
