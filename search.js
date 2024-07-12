@@ -277,6 +277,7 @@ document.addEventListener('DOMContentLoaded', () => {
     createCard('multimedia/images/materiales/26.png', 'Material 1', '$900', 'tag1', 'card-otros-materiales', medidaLambrin, descripcionLambrin, imgLamChocolate);
     createCard('multimedia/images/materiales/27.png', 'Material 2', '$500', 'tag1', 'card-otros-materiales', medidaMarmol, descripcionMarmol, imgMarNegro);
     createCard('multimedia/images/materiales/31.png', 'Material 3', '$500', 'tag1', 'card-otros-materiales', medidaLambrin, descripcionLambrin, imgLamChocolate);
+    createCard('multimedia/images/materiales/30.png', 'Material 4', '$600', 'tag1', 'card-otros-materiales', medidaMarmol, descripcionLambrin, imgMarNegro);
 });
 
 
