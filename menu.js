@@ -68,6 +68,7 @@ function closeModalFun() {
 
 function enviarMensajeWhatsApp(mensaje) {
     const numeroTelefono = 'tu_numero_de_telefono'; // Reemplaza con el número de teléfono al que deseas enviar el mensaje
+
   
     const urlWhatsApp = `https://api.whatsapp.com/send?phone=${numeroTelefono}&text=${encodeURIComponent(mensaje)}`;
     window.open(urlWhatsApp);

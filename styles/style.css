@@ -79,7 +79,7 @@ section {
     z-index: 100;
 }
 .background-header {
-    background-color: #efefefdd;
+    background-color: #efefefaa;
     position: fixed;
     top: 0;
     height: 70px;
@@ -199,6 +199,7 @@ section {
     border-radius: 10px;
     height: 85vh;
     width: 85%;
+    min-width: 340px;
     background-color: #efefef;
     padding: 10px;
     overflow: scroll;
@@ -226,6 +227,7 @@ section {
 }
 .img-modal-container {
     min-width: 260px;
+    min-height: 260px;
     max-width: 400px;
     max-height: 500px;
     /* actualizar en cada aumento de px */
@@ -411,8 +413,7 @@ h1 {
     position: relative;
 }
 .background-1 {
-    background-image: url("../multimedia/images/IMG_0238.HEIC");
-    
+   transition: background .4s;
 }
 .background-1::before {
     content: " ";
@@ -715,13 +716,17 @@ h1 {
   min-width: 150px;
   min-height: 120px;
   border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .contact-info img {
     width: 50px;
     margin: 5px;
     vertical-align: middle;
     filter: invert(1);
-}.contact-info > div > a {
+}
+.contact-info > div > a {
     color: #fff;
     display: flex;
     flex-direction: column;

@@ -16,6 +16,23 @@ document.addEventListener('DOMContentLoaded', () => {
     const modalImgContent = document.querySelector('.modal-img-container');
     const imgModal = document.querySelector('.imgModal');
 
+    const bgImg = document.querySelector('.background-1');
+    const bgi = [
+        'url(/multimedia/images/backgrounds/bg-1.HEIC',
+        'url(/multimedia/images/backgrounds/bg-2.jpg',
+        'url(/multimedia/images/backgrounds/bg-3.jpg',
+        'url(/multimedia/images/backgrounds/bg-4.jpg',
+        'url(/multimedia/images/backgrounds/bg-5.jpg',
+        'url(/multimedia/images/backgrounds/bg-6.jpg'
+    ];
+    const randomBackground = bgi[Math.floor(Math.random() * bgi.length)];
+    bgImg.style.backgroundImage = randomBackground;
+    setInterval(function() {
+        const randomBackground = bgi[Math.floor(Math.random() * bgi.length)];
+        bgImg.style.backgroundImage = randomBackground;
+        
+    },5000)
+
     function openImgModal() {
         modalImgContainer.removeAttribute("hidden");
             setTimeout(function(){
