@@ -66,6 +66,13 @@ function closeModalFun() {
 }
 
 
+function enviarMensajeWhatsApp(mensaje) {
+    const numeroTelefono = 'tu_numero_de_telefono'; // Reemplaza con el número de teléfono al que deseas enviar el mensaje
+  
+    const urlWhatsApp = `https://api.whatsapp.com/send?phone=${numeroTelefono}&text=${encodeURIComponent(mensaje)}`;
+    window.open(urlWhatsApp);
+  }
+
 // JavaScript
 // const images = ['multimedia/images/materiales/28.png', 'multimedia/images/materiales/29.png', 'multimedia/images/materiales/26.png']; // Lista de imágenes
 // let currentImage = 0; // Imagen actual

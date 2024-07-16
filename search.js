@@ -289,7 +289,7 @@ window.addEventListener('scroll', function() {
         btnWhatsAppFix.classList.add('move-btn');
     } else {
         btnWhatsAppFix.classList.remove('move-btn');
-    } if (window.scrollY > 3250) {
+    } if (window.scrollY > 3100) {
         btnWhatsAppFix.classList.remove('move-btn'); //Cantidad de pixeles que se mueve 
     }
 });
