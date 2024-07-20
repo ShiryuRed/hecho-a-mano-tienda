@@ -5,6 +5,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const searchInput = document.getElementById('search-input');
     const filterButton = document.getElementById('filter-button');
 
+    const buttonLinkModal = document.querySelector('.button-modal')
     const imgModalContainer = document.querySelector(".img-modal-container");
     const imgGliderModal = document.querySelector(".img-glider-modal");
     const h2Container = document.querySelector(".h2-container");
@@ -14,16 +15,17 @@ document.addEventListener('DOMContentLoaded', () => {
     // const firstImageModal = document.querySelector('.first-img-modal');
     const modalImgContainer = document.querySelector('.modal-img');
     const modalImgContent = document.querySelector('.modal-img-container');
-    const imgModal = document.querySelector('.imgModal');
+    const imgModal = document.querySelector('.imgModal');            
+    const buttonWhatsApp = document.querySelector('.btn-modal-whatsapp');
 
     const bgImg = document.querySelector('.background-1');
     const bgi = [
-        'url(multimedia/images/backgrounds/bg-1.HEIC',
-        'url(multimedia/images/backgrounds/bg-2.jpg',
-        'url(multimedia/images/backgrounds/bg-3.jpg',
-        'url(multimedia/images/backgrounds/bg-4.jpg',
-        'url(multimedia/images/backgrounds/bg-5.jpg',
-        'url(multimedia/images/backgrounds/bg-6.jpg'
+        'url(/multimedia/images/backgrounds/bg-1.HEIC',
+        'url(/multimedia/images/backgrounds/bg-2.jpg',
+        'url(/multimedia/images/backgrounds/bg-3.jpg',
+        'url(/multimedia/images/backgrounds/bg-4.jpg',
+        'url(/multimedia/images/backgrounds/bg-5.jpg',
+        'url(/multimedia/images/backgrounds/bg-6.jpg'
     ];
     const randomBackground = bgi[Math.floor(Math.random() * bgi.length)];
     bgImg.style.backgroundImage = randomBackground;
@@ -48,7 +50,7 @@ document.addEventListener('DOMContentLoaded', () => {
         },600);
     }
     
-    function createCard(imageSrc, name, number, tagName, containerId, medidas, description, imgUrls) {
+    function createCard(imageSrc, name, number, tagName, containerId, medidas, description, imgUrls, estado) {
         // Crear un contenedor para la tarjeta
         const card = document.createElement('div');
         card.className = 'card';
@@ -64,11 +66,20 @@ document.addEventListener('DOMContentLoaded', () => {
         // // Crear y añadir la imagen a la tarjeta
         const img = document.createElement('img');
         img.src = imageSrc;
-        img.classList.add('modalImg')
+        img.classList.add('modalImg');
+        //estado del material
+        const estadoMaterial = estado 
+        if (estadoMaterial == 'proximamente') { 
+            imgContainer.classList.add('img-card-container-proximamente');
+        } if (estadoMaterial == 'agotado') {
+            imgContainer.classList.add('img-card-container-agotado');
+        } if (estadoMaterial == 'disponible') {
+            imgContainer.classList.add('ci')
+        }
         img.setAttribute('alt', name);
         img.setAttribute('loading', 'lazy');
         imgContainer.appendChild(img);
-        const modalImg = document.querySelectorAll('.modalImg')
+        const modalImg = document.querySelectorAll('.modalImg');
 
         modalImg.forEach(images => {
             images.addEventListener('click', () => {
@@ -98,6 +109,8 @@ document.addEventListener('DOMContentLoaded', () => {
         
         // añador medidas a la tarjeta
         const cardDescription = description;
+
+        
     
         // Crear y añadir el botón a la tarjeta
         const button = document.createElement('button');
@@ -116,31 +129,34 @@ document.addEventListener('DOMContentLoaded', () => {
         card.appendChild(button);
 
     
+        
         //Añadir la tarjeta al contenedor especificado
         const cardContainer = document.getElementById(containerId);
         cardContainer.appendChild(card);
           
+           
       
         button.addEventListener('click', () => {
             openModalFun();
-
             //se crea la primera imagen
             firstImage = imageSrc;
+            // se guarda el nombre de el material
+            materialName = name;
             // firstImageModal.setAttribute('alt', name);
             // firstImageModal.setAttribute('src', imageSrc);
 
             //se crea el titulo
-            const titleModal = document.createElement('h2');
+            const titleModal = document.createElement('h1');
             titleModal.textContent = `${name}`;
             h2Container.appendChild(titleModal);
 
             //se crea el precio
-            const precioModal = document.createElement('p');
+            const precioModal = document.createElement('h4');
             precioModal.textContent = `${number}`;
             price.appendChild(precioModal);
             
             //se crean las medidas
-            const medidasInfo = document.createElement('p');
+            const medidasInfo = document.createElement('h4');
             medidasInfo.textContent = `${medidas}`;
             medidasMaterial.appendChild(medidasInfo); 
             
@@ -149,7 +165,34 @@ document.addEventListener('DOMContentLoaded', () => {
             descriptionInfo.textContent = `${description}`;
             descripcionMaterial.appendChild(descriptionInfo);
 
+            if (estadoMaterial == 'proximamente') { 
+                buttonLinkModal.setAttribute('hidden', true);
+            } if (estadoMaterial == 'agotado') {
+                buttonLinkModal.setAttribute('hidden', true);
+            } if (estadoMaterial == 'disponible') {
+                buttonLinkModal.removeAttribute('hidden');
+            }
             
+            //se agregan los links a whatsapp
+
+        //   function enviarMensajeWhatsApp() {
+        //         const numeroTelefono = '+527531096879';
+        //         let mensaje = ' '
+        //         mensaje = `¡Hola! Me gustaría adquirir el `;
+        //         let urlWhatsApp = ' '
+        //         urlWhatsApp = `https://api.whatsapp.com/send?phone=${numeroTelefono}&text=${encodeURIComponent(mensaje) + name}`;
+        //         window.open(urlWhatsApp);
+        //         urlWhatsApp.replace(urlWhatsApp, ' ')
+        //     }
+            //se agregan los links a whatsapp
+            function abrirEnlace(parametro) {
+                const texto = `¡Hola! Me gustaría adquirir el ${parametro}`;
+                const numeroTelefono = '+527531096879';
+                const enlace = `https://api.whatsapp.com/send?phone=${numeroTelefono}&text=${encodeURIComponent(texto)}`;
+                window.open(enlace, '_blank');
+            }
+
+            buttonWhatsApp.addEventListener('click', () => abrirEnlace(materialName));
 
             //se agregan las imagenes a la galeria
             // const imgModal = document.createElement('img');
@@ -231,7 +274,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     titleModal.remove();
                     precioModal.remove();
                     medidasInfo.remove();
-                    descriptionInfo.remove();
+                    descriptionInfo.remove(); 
                     dotsOnModal.forEach(dot => {
                         dot.remove();
                     });
@@ -273,28 +316,32 @@ document.addEventListener('DOMContentLoaded', () => {
     filterButton.addEventListener('click', filterCards);
 
 
-    let medidaLambrin = '0.16 * 2.90 cm'
-    let medidaMarmol = '1.20 * 2.44 cm'
+    let medidaLambrin = '16cm * 290 cm'
+    let medidaMarmol = '120cm * 244 cm'
 
-    let descripcionLambrin = 'Recopilamos información para brindar mejores servicios a todos nuestros usuarios: '
-    let descripcionMarmol = 'Cuando no ha accedido a su Cuenta de Google, almacenamos la información que recopilamos con identificadores únicos que están vinculados con el navegador, '
+    let descripcionLambrin = `Renueva tus espacios con el elegante Lambrín WPC de imitación madera.
+    Nuestro material combina la estética natural de la madera con las ventajas de un compuesto de madera y plástico (WPC), 
+    ofreciendo una solución moderna y duradera para cualquier ambiente.`
+    let descripcionMarmol = 'Transforma tus espacios con nuestras elegantes láminas de imitación de mármol en PVC. Este material de alta calidad ofrece la sofisticación del mármol a un costo accesible, ideal para cualquier proyecto de renovación.'
 
-    let imgLamChocolate = ['multimedia/images/materiales/28.png', 'multimedia/images/materiales/29.png'];
+    let imgLamNeg = ['multimedia/images/materiales/lambrin/13.png', 'multimedia/images/materiales/lambrin/15.png','multimedia/images/materiales/lambrin/16.png'];
+    let imgLamMad = ['multimedia/images/materiales/lambrin/18.png', 'multimedia/images/materiales/lambrin/19.png', 'multimedia/images/materiales/29.png'];
     let imgMarNegro = ['multimedia/images/materiales/33.png', 'multimedia/images/materiales/34.png', 'multimedia/images/materiales/35.png'];
 
     // Tarjetas lambrin    
-    createCard('multimedia/images/materiales/lam-chocolate.jpg', 'Lambrin color chocolate', '$300 pz', 'tag1', 'card-lambrin', medidaLambrin, descripcionLambrin, imgLamChocolate);
-    createCard('multimedia/images/materiales/28.png', 'Lambrin color madera', '$300 pz', 'tag1', 'card-lambrin', medidaLambrin, descripcionLambrin, imgLamChocolate);
-    createCard('multimedia/images/materiales/29.png', 'Lambrin color carbon', '$300 pz', 'tag1', 'card-lambrin', medidaLambrin, descripcionLambrin, imgLamChocolate);
+    createCard('multimedia/images/materiales/lambrin/14.png', 'Lambrin color negro', '$300 pz', 'tag1', 'card-lambrin', medidaLambrin, descripcionLambrin, imgLamNeg, 'disponible');
+    createCard('multimedia/images/materiales/lambrin/17.png', 'Lambrin color madera', '$300 pz', 'tag1', 'card-lambrin', medidaLambrin, descripcionLambrin, imgLamMad, 'disponible');
+    createCard('multimedia/images/materiales/29.png', 'Lambrin color carbon', '$300 pz', 'tag1', 'card-lambrin', medidaLambrin, descripcionLambrin, imgLamMad, 'proximamente');
     // Tarjetas marmol
-    createCard('multimedia/images/materiales/33.png', 'Mármol PVC color negro', '$1300 pz', 'tag1', 'card-marmol', medidaMarmol, descripcionMarmol, imgMarNegro);
-    createCard('multimedia/images/materiales/34.png', 'Mármol PVC color blanco', '$1300 pz', 'tag1', 'card-marmol', medidaMarmol, descripcionMarmol, imgMarNegro);
-    createCard('multimedia/images/materiales/35.png', 'Mármol PVC color dorado', '$1300 pz', 'tag1', 'card-marmol', medidaMarmol, descripcionMarmol, imgMarNegro);
+    createCard('multimedia/images/materiales/marmol/3.png', 'Mármol PVC color negro', '$1300 pz', 'tag1', 'card-marmol', medidaMarmol, descripcionMarmol, imgMarNegro, 'disponible');
+    createCard('multimedia/images/materiales/marmol/2.png', 'Mármol PVC color blanco', '$1300 pz', 'tag1', 'card-marmol', medidaMarmol, descripcionMarmol, imgMarNegro, 'disponible');
+    createCard('multimedia/images/materiales/marmol/7.png', 'Mármol PVC color blanco y negro', '$1300 pz', 'tag1', 'card-marmol', medidaMarmol, descripcionMarmol, imgMarNegro, 'disponible');
+    createCard('multimedia/images/materiales/marmol/10.png', 'Mármol PVC color rayado', '$1300 pz', 'tag1', 'card-marmol', medidaMarmol, descripcionMarmol, imgMarNegro, 'disponible');
     // Tarjetas mas materiales
-    createCard('multimedia/images/materiales/26.png', 'Material 1', '$900', 'tag1', 'card-otros-materiales', medidaLambrin, descripcionLambrin, imgLamChocolate);
-    createCard('multimedia/images/materiales/27.png', 'Material 2', '$500', 'tag1', 'card-otros-materiales', medidaMarmol, descripcionMarmol, imgMarNegro);
-    createCard('multimedia/images/materiales/31.png', 'Material 3', '$500', 'tag1', 'card-otros-materiales', medidaLambrin, descripcionLambrin, imgLamChocolate);
-    createCard('multimedia/images/materiales/30.png', 'Material 4', '$600', 'tag1', 'card-otros-materiales', medidaMarmol, descripcionLambrin, imgMarNegro);
+    createCard('multimedia/images/materiales/26.png', 'Material 1', '$900 pz', 'tag1', 'card-otros-materiales', medidaLambrin, descripcionLambrin, imgLamMad, 'disponible');
+    createCard('multimedia/images/materiales/27.png', 'Material 2', '$500 pz', 'tag1', 'card-otros-materiales', medidaMarmol, descripcionMarmol, imgMarNegro, 'disponible');
+    createCard('multimedia/images/materiales/31.png', 'Material 3', '$500 pz', 'tag1', 'card-otros-materiales', medidaLambrin, descripcionLambrin, imgLamNeg, 'agotado');
+    createCard('multimedia/images/materiales/30.png', 'Material 4', '$600 pz', 'tag1', 'card-otros-materiales', medidaMarmol, descripcionLambrin, imgMarNegro, 'agotado');
 });
 
 
