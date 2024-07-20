@@ -20,12 +20,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const bgImg = document.querySelector('.background-1');
     const bgi = [
-        'url(/multimedia/images/backgrounds/bg-1.HEIC',
-        'url(/multimedia/images/backgrounds/bg-2.jpg',
-        'url(/multimedia/images/backgrounds/bg-3.jpg',
-        'url(/multimedia/images/backgrounds/bg-4.jpg',
-        'url(/multimedia/images/backgrounds/bg-5.jpg',
-        'url(/multimedia/images/backgrounds/bg-6.jpg'
+        'url(multimedia/images/backgrounds/bg-1.HEIC',
+        'url(multimedia/images/backgrounds/bg-2.jpg',
+        'url(multimedia/images/backgrounds/bg-3.jpg',
+        'url(multimedia/images/backgrounds/bg-4.jpg',
+        'url(multimedia/images/backgrounds/bg-5.jpg',
+        'url(multimedia/images/backgrounds/bg-6.jpg'
     ];
     const randomBackground = bgi[Math.floor(Math.random() * bgi.length)];
     bgImg.style.backgroundImage = randomBackground;
