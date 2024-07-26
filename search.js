@@ -325,23 +325,30 @@ document.addEventListener('DOMContentLoaded', () => {
     let descripcionMarmol = 'Transforma tus espacios con nuestras elegantes láminas de imitación de mármol en PVC. Este material de alta calidad ofrece la sofisticación del mármol a un costo accesible, ideal para cualquier proyecto de renovación.'
 
     let imgLamNeg = ['multimedia/images/materiales/lambrin/13.png', 'multimedia/images/materiales/lambrin/15.png','multimedia/images/materiales/lambrin/16.png'];
-    let imgLamMad = ['multimedia/images/materiales/lambrin/18.png', 'multimedia/images/materiales/lambrin/19.png', 'multimedia/images/materiales/29.png'];
-    let imgMarNegro = ['multimedia/images/materiales/33.png', 'multimedia/images/materiales/34.png', 'multimedia/images/materiales/35.png'];
+    let imgLamMad = ['multimedia/images/materiales/lambrin/18.png', 'multimedia/images/materiales/lambrin/19.png', 'multimedia/images/materiales/21.jpg'];
+    let imgMarNegro = ['multimedia/images/materiales/marmol/4.png', 'multimedia/images/materiales/22.jpg', 'multimedia/images/materiales/24.jpg'];
+    let imgMarBlanco = ['multimedia/images/materiales/marmol/1.png', 'multimedia/images/materiales/20.jpg', 'multimedia/images/materiales/25.jpg'];
+    let imgMarBlancoYNegro = ['multimedia/images/materiales/marmol/8.png', 'multimedia/images/materiales/23.jpg', 'multimedia/images/materiales/24.jpg'];
+    let imgMarRayado = ['multimedia/images/materiales/marmol/9.png', 'multimedia/images/materiales/27.jpg', 'multimedia/images/materiales/25.jpg'];
+    let imgMarRosa = ['multimedia/images/materiales/marmol/11.png', 'multimedia/images/materiales/23.jpg', 'multimedia/images/materiales/26.jpg'];
+    let imgMarRayado2 = ['multimedia/images/materiales/marmol/6.png', 'multimedia/images/materiales/21.jpg', 'multimedia/images/materiales/20.jpg'];
 
     // Tarjetas lambrin    
     createCard('multimedia/images/materiales/lambrin/14.png', 'Lambrin color negro', '$300 pz', 'tag1', 'card-lambrin', medidaLambrin, descripcionLambrin, imgLamNeg, 'disponible');
     createCard('multimedia/images/materiales/lambrin/17.png', 'Lambrin color madera', '$300 pz', 'tag1', 'card-lambrin', medidaLambrin, descripcionLambrin, imgLamMad, 'disponible');
-    createCard('multimedia/images/materiales/29.png', 'Lambrin color carbon', '$300 pz', 'tag1', 'card-lambrin', medidaLambrin, descripcionLambrin, imgLamMad, 'proximamente');
+    createCard('multimedia/images/materiales/21.jpg', 'Lambrin color carbon', '$300 pz', 'tag1', 'card-lambrin', medidaLambrin, descripcionLambrin, imgLamMad, 'proximamente');
     // Tarjetas marmol
     createCard('multimedia/images/materiales/marmol/3.png', 'Mármol PVC color negro', '$1300 pz', 'tag1', 'card-marmol', medidaMarmol, descripcionMarmol, imgMarNegro, 'disponible');
-    createCard('multimedia/images/materiales/marmol/2.png', 'Mármol PVC color blanco', '$1300 pz', 'tag1', 'card-marmol', medidaMarmol, descripcionMarmol, imgMarNegro, 'disponible');
-    createCard('multimedia/images/materiales/marmol/7.png', 'Mármol PVC color blanco y negro', '$1300 pz', 'tag1', 'card-marmol', medidaMarmol, descripcionMarmol, imgMarNegro, 'disponible');
-    createCard('multimedia/images/materiales/marmol/10.png', 'Mármol PVC color rayado', '$1300 pz', 'tag1', 'card-marmol', medidaMarmol, descripcionMarmol, imgMarNegro, 'disponible');
+    createCard('multimedia/images/materiales/marmol/2.png', 'Mármol PVC color blanco', '$1300 pz', 'tag1', 'card-marmol', medidaMarmol, descripcionMarmol, imgMarBlanco, 'disponible');
+    createCard('multimedia/images/materiales/marmol/7.png', 'Mármol PVC color blanco y negro', '$1300 pz', 'tag1', 'card-marmol', medidaMarmol, descripcionMarmol, imgMarBlancoYNegro, 'disponible');
+    createCard('multimedia/images/materiales/marmol/10.png', 'Mármol PVC color rayado', '$1300 pz', 'tag1', 'card-marmol', medidaMarmol, descripcionMarmol, imgMarRayado, 'disponible');
+    createCard('multimedia/images/materiales/marmol/5.png', 'Mármol PVC rayado', '$1300 pz', 'tag1', 'card-marmol', medidaMarmol, descripcionMarmol, imgMarRayado2, 'disponible');
+    createCard('multimedia/images/materiales/marmol/12.png', 'Mármol PVC color rosa', '$1300 pz', 'tag1', 'card-marmol', medidaMarmol, descripcionMarmol, imgMarRosa, 'disponible');
     // Tarjetas mas materiales
-    createCard('multimedia/images/materiales/26.png', 'Material 1', '$900 pz', 'tag1', 'card-otros-materiales', medidaLambrin, descripcionLambrin, imgLamMad, 'disponible');
-    createCard('multimedia/images/materiales/27.png', 'Material 2', '$500 pz', 'tag1', 'card-otros-materiales', medidaMarmol, descripcionMarmol, imgMarNegro, 'disponible');
-    createCard('multimedia/images/materiales/31.png', 'Material 3', '$500 pz', 'tag1', 'card-otros-materiales', medidaLambrin, descripcionLambrin, imgLamNeg, 'agotado');
-    createCard('multimedia/images/materiales/30.png', 'Material 4', '$600 pz', 'tag1', 'card-otros-materiales', medidaMarmol, descripcionLambrin, imgMarNegro, 'agotado');
+    createCard('multimedia/images/materiales/marmol/9.png', 'Material 1', '$900 pz', 'tag1', 'card-otros-materiales', medidaLambrin, descripcionLambrin, imgLamMad, 'disponible');
+    createCard('multimedia/images/materiales/23.jpg', 'Material 2', '$500 pz', 'tag1', 'card-otros-materiales', medidaMarmol, descripcionMarmol, imgMarNegro, 'disponible');
+    createCard('multimedia/images/materiales/27.jpg', 'Material 3', '$500 pz', 'tag1', 'card-otros-materiales', medidaLambrin, descripcionLambrin, imgLamNeg, 'agotado');
+    createCard('multimedia/images/materiales/marmol/6.png', 'Material 4', '$600 pz', 'tag1', 'card-otros-materiales', medidaMarmol, descripcionLambrin, imgMarNegro, 'agotado');
 });
 
 
